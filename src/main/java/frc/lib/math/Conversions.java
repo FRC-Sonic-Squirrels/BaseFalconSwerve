@@ -66,7 +66,7 @@ public class Conversions {
      * @param velocitycounts Falcon Velocity Counts
      * @param circumference Circumference of Wheel
      * @param gearRatio Gear Ratio between Falcon and Mechanism (set to 1 for Falcon RPM)
-     * @return Falcon Velocity Counts
+     * @return Velocity MPS
      */
     public static double falconToMPS(double velocitycounts, double circumference, double gearRatio){
         double wheelRPM = falconToRPM(velocitycounts, gearRatio);
@@ -84,5 +84,25 @@ public class Conversions {
         double wheelRPM = ((velocity * 60) / circumference);
         double wheelVelocity = RPMToFalcon(wheelRPM, gearRatio);
         return wheelVelocity;
+    }
+
+    /**
+     * @param counts Falcon Velocity Counts
+     * @param circumference Circumference of Wheel
+     * @param gearRatio Gear Ratio between Falcon and Mechanism
+     * @return distance meters
+     */
+    public static double falconToMeters(double counts, double circumference, double gearRatio){
+        return counts * circumference / (gearRatio * 2048.0);
+    }
+
+    /**
+     * @param distance meters
+     * @param circumference Circumference of Wheel
+     * @param gearRatio Gear Ratio between Falcon and Mechanism
+     * @return Falcon distance Counts
+     */
+    public static double MetersToFalcon(double distanceMeters, double circumference, double gearRatio){
+        return distanceMeters * gearRatio * 2048 / circumference; 
     }
 }
