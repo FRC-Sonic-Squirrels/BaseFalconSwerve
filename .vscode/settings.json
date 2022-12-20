@@ -27,7 +27,10 @@
   ],
   "java.test.defaultConfig": "WPIlibUnitTests",
   "cSpell.words": [
+    "Deadband",
     "Feedforward",
+    "pteromini",
+    "SDSMK",
     "velocitycounts",
     "wpilibj"
   ]
